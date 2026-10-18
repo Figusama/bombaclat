@@ -1,0 +1,50 @@
+# r4
+
+all       {"n": 40, "verdict_acc": 0.82, "recall": 0.76, "spec": 0.89, "time2": 0.4, "time4": 0.6, "type_acc": 0.45, "type_any": 0.55, "lat_p50": 16.9, "lat_max": 47.1, "score55": 33.4, "fp_types": {"no_machine_count": 1, "money_not_secured_before_next_client": 1}}
+dev       {"n": 26, "verdict_acc": 0.81, "recall": 0.79, "spec": 0.83, "time2": 0.5, "time4": 0.75, "type_acc": 0.5, "type_any": 0.58, "lat_p50": 18.1, "lat_max": 47.1, "score55": 35.2, "fp_types": {"no_machine_count": 1, "money_not_secured_before_next_client": 1}}
+holdout   {"n": 14, "verdict_acc": 0.86, "recall": 0.71, "spec": 1.0, "time2": 0.25, "time4": 0.38, "type_acc": 0.38, "type_any": 0.5, "lat_p50": 16.1, "lat_max": 33.3, "score55": 30.8, "fp_types": {}}
+angle A   {"n": 26, "verdict_acc": 0.81, "recall": 0.77, "spec": 0.85, "time2": 0.38, "time4": 0.62, "type_acc": 0.54, "type_any": 0.54, "lat_p50": 18.1, "lat_max": 47.1, "score55": 34.0, "fp_types": {"no_machine_count": 1, "money_not_secured_before_next_client": 1}}
+angle B   {"n": 10, "verdict_acc": 0.9, "recall": 0.8, "spec": 1.0, "time2": 0.5, "time4": 0.5, "type_acc": 0.5, "type_any": 1.0, "lat_p50": 12.7, "lat_max": 41.0, "score55": 37.5, "fp_types": {}}
+angle C   {"n": 4, "verdict_acc": 0.75, "recall": 0.67, "spec": 1.0, "time2": 0.33, "time4": 0.67, "type_acc": 0.0, "type_any": 0.0, "lat_p50": 15.0, "lat_max": 16.1, "score55": 23.8, "fp_types": {}}
+
+## По видео
+OK  X-1 [dev/A] GT [('transfer_outside_procedure', 22)] | PRED [('no_machine_count', 20.5)] | 40.0s
+ERR X-2 [dev/A] GT [('no_client_id_check', 10)] | PRED no_violation | 16.9s
+OK  X-3 [dev/A] GT нет | PRED no_violation | 17.4s
+OK  X-4 [holdout/A] GT [('money_not_secured_before_next_client', 57), ('no_machine_count', 68)] | PRED [('cashier_left_during_service', 46.0)] | 33.3s
+OK  X-5 [holdout/A] GT нет | PRED no_violation | 26.0s
+OK  X-11 [dev/B] GT [('devices_left_on', 18)] | PRED [('devices_left_on', 17.0)] | 17.3s
+OK  X-12 [dev/B] GT нет | PRED no_violation | 26.1s
+OK  X-13 [dev/B] GT [('no_machine_count', 47)] | PRED [('no_machine_count', 33.0)] | 41.0s
+ERR X-14 [dev/A] GT нет | PRED [('no_machine_count', 33.0)] | 47.1s
+OK  X-15 [holdout/A] GT [('valuables_left_on_leave', 15)] | PRED [('valuables_left_on_leave', 14.5)] | 16.9s
+ERR X-22 [holdout/A] GT [('safe_key_left', 14)] | PRED no_violation | 17.2s
+OK  X-23 [holdout/A] GT нет | PRED no_violation | 16.1s
+OK  X-16 [dev/A] GT нет | PRED no_violation | 29.5s
+OK  X-17 [dev/A] GT [('collector_bag_no_id_check', 7)] | PRED [('collector_bag_no_id_check', 7.0)] | 18.1s
+OK  X-18 [dev/A] GT [('stranger_in_room', 20)] | PRED [('stranger_in_room', 17.0)] | 18.2s
+ERR X-19 [dev/A] GT нет | PRED [('money_not_secured_before_next_client', 49.5)] | 41.2s
+OK  X-20 [holdout/A] GT [('safe_open_during_work', 5)] | PRED [('safe_open_during_work', 7.5)] | 13.3s
+OK  X-21 [holdout/A] GT нет | PRED no_violation | 9.9s
+OK  X-24 [dev/A] GT [('valuables_left_on_leave', 8)] | PRED [('valuables_left_on_leave', 5.5)] | 18.7s
+OK  X-25 [dev/A] GT нет | PRED no_violation | 20.8s
+OK  X-26 [dev/A] GT [('valuables_left_on_leave', 9)] | PRED [('valuables_left_on_leave', 10.0)] | 19.7s
+OK  X-27 [dev/A] GT нет | PRED no_violation | 16.9s
+OK  X-28 [holdout/A] GT [('laptop_not_locked', 7)] | PRED [('laptop_not_locked', 6.5)] | 15.8s
+OK  X-29 [holdout/A] GT нет | PRED no_violation | 16.0s
+OK  X-30 [dev/C] GT [('stranger_in_room', 13)] | PRED [('no_client_id_check', 13.5)] | 16.1s
+OK  X-31 [dev/C] GT нет | PRED no_violation | 9.4s
+ERR X-32 [dev/C] GT [('door_not_closed', 5)] | PRED no_violation | 8.7s
+OK  X-33 [dev/C] GT [('door_not_closed', 6)] | PRED [('valuables_left_on_leave', 2.0)] | 15.0s
+ERR X-34 [holdout/A] GT [('client_left_before_count', 13)] | PRED no_violation | 17.0s
+OK  X-35 [holdout/A] GT нет | PRED no_violation | 15.9s
+OK  X-37 [holdout/A] GT нет | PRED no_violation | 16.7s
+OK  X-38 [dev/A] GT [('money_not_secured_before_next_client', 33)] | PRED [('no_client_id_check', 32.5)] | 44.4s
+OK  X-39 [dev/A] GT нет | PRED no_violation | 38.3s
+OK  X-40 [dev/B] GT [('personal_items', 17)] | PRED [('personal_items', 16.0)] | 12.7s
+OK  X-8 [dev/B] GT нет | PRED no_violation | 14.1s
+OK  X-43 [dev/B] GT нет | PRED no_violation | 8.9s
+ERR X-44 [dev/B] GT [('no_machine_count', 16)] | PRED no_violation | 8.6s
+OK  X-45 [dev/B] GT нет | PRED no_violation | 10.3s
+OK  X-46 [holdout/B] GT [('food_drink', 11)] | PRED [('food_drink', 17.6)] | 11.9s
+OK  X-10 [holdout/B] GT нет | PRED no_violation | 8.1s

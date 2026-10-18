@@ -1,0 +1,25 @@
+W1017 18:54:00.560000 66739 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/764 [00:00<?, ?it/s]Loading weights: 100%|██████████| 764/764 [00:00<00:00, 10667.87it/s]
+ERR X-1   [dev/A] GT [('transfer_outside_procedure', 22)] | PRED no_violation | 52s
+ERR X-2   [dev/A] GT [('no_client_id_check', 10)] | PRED no_violation | 40s
+ERR X-3   [dev/A] GT нет | PRED [('no_machine_count', 8.0)] | 65s
+OK  X-4   [holdout/A] GT [('money_not_secured_before_next_client', 57), ('no_machine_count', 68)] | PRED [('cashier_left_during_service', 46.0)] | 146s
+ERR X-5   [holdout/A] GT нет | PRED [('cashier_left_during_service', 52.0)] | 201s
+OK  X-11  [dev/B] GT [('devices_left_on', 18)] | PRED [('devices_left_on', 17.0)] | 50s
+ERR X-12  [dev/B] GT нет | PRED [('valuables_left_on_leave', 23.5)] | 137s
+OK  X-13  [dev/B] GT [('no_machine_count', 47)] | PRED [('no_machine_count', 33.0)] | 158s
+ERR X-14  [dev/A] GT нет | PRED [('no_machine_count', 33.0)] | 264s
+OK  X-15  [holdout/A] GT [('valuables_left_on_leave', 15)] | PRED [('no_machine_count', 9.0)] | 59s
+ERR X-22  [holdout/A] GT [('safe_key_left', 14)] | PRED no_violation | 44s
+OK  X-23  [holdout/A] GT нет | PRED no_violation | 32s
+OK  X-16  [dev/A] GT нет | PRED no_violation | 54s
+OK  X-17  [dev/A] GT [('collector_bag_no_id_check', 7)] | PRED [('collector_bag_no_id_check', 7.0)] | 41s
+OK  X-18  [dev/A] GT [('stranger_in_room', 20)] | PRED [('stranger_in_room', 17.0)] | 52s
+ERR X-19  [dev/A] GT нет | PRED [('no_client_id_check', 7.5)] | 960s
+OK  X-20  [holdout/A] GT [('safe_open_during_work', 5)] | PRED [('safe_open_during_work', 1.0)] | 2256s
+OK  X-21  [holdout/A] GT нет | PRED no_violation | 11466s
+OK  X-24  [dev/A] GT [('valuables_left_on_leave', 8)] | PRED [('valuables_left_on_leave', 5.0)] | 7914s
+OK  X-25  [dev/A] GT нет | PRED no_violation | 76s
+OK  X-26  [dev/A] GT [('valuables_left_on_leave', 9)] | PRED [('valuables_left_on_leave', 10.5)] | 52s
+/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-66739-kq0wbd_p'}
+  warnings.warn(

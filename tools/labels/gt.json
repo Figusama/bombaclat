@@ -1,0 +1,413 @@
+{
+ "X-1": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "transfer_outside_procedure",
+    "t": 22,
+    "uncertain": true
+   }
+  ],
+  "angle": "A",
+  "pair": 0,
+  "split": "dev"
+ },
+ "X-2": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "no_client_id_check",
+    "t": 10,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 0,
+  "split": "dev"
+ },
+ "X-3": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 0,
+  "split": "dev"
+ },
+ "X-4": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "money_not_secured_before_next_client",
+    "t": 57,
+    "uncertain": false
+   },
+   {
+    "type": "no_machine_count",
+    "t": 68,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 1,
+  "split": "holdout"
+ },
+ "X-5": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 1,
+  "split": "holdout"
+ },
+ "X-11": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "devices_left_on",
+    "t": 18,
+    "uncertain": false
+   }
+  ],
+  "angle": "B",
+  "pair": 2,
+  "split": "dev"
+ },
+ "X-12": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "B",
+  "pair": 2,
+  "split": "dev"
+ },
+ "X-13": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "no_machine_count",
+    "t": 47,
+    "uncertain": false
+   }
+  ],
+  "angle": "B",
+  "pair": 3,
+  "split": "dev"
+ },
+ "X-14": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 3,
+  "split": "dev"
+ },
+ "X-15": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "valuables_left_on_leave",
+    "t": 15,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 4,
+  "split": "holdout"
+ },
+ "X-22": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "safe_key_left",
+    "t": 14,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 4,
+  "split": "holdout"
+ },
+ "X-23": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 4,
+  "split": "holdout"
+ },
+ "X-16": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 5,
+  "split": "dev"
+ },
+ "X-17": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "collector_bag_no_id_check",
+    "t": 7,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 5,
+  "split": "dev"
+ },
+ "X-18": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "stranger_in_room",
+    "t": 20,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 6,
+  "split": "dev"
+ },
+ "X-19": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 6,
+  "split": "dev"
+ },
+ "X-20": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "safe_open_during_work",
+    "t": 5,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 7,
+  "split": "holdout"
+ },
+ "X-21": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 7,
+  "split": "holdout"
+ },
+ "X-24": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "valuables_left_on_leave",
+    "t": 8,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 8,
+  "split": "dev"
+ },
+ "X-25": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 8,
+  "split": "dev"
+ },
+ "X-26": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "valuables_left_on_leave",
+    "t": 9,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 9,
+  "split": "dev"
+ },
+ "X-27": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 9,
+  "split": "dev"
+ },
+ "X-28": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "laptop_not_locked",
+    "t": 7,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 10,
+  "split": "holdout"
+ },
+ "X-29": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 10,
+  "split": "holdout"
+ },
+ "X-30": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "stranger_in_room",
+    "t": 13,
+    "uncertain": false
+   }
+  ],
+  "angle": "C",
+  "pair": 11,
+  "split": "dev"
+ },
+ "X-31": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "C",
+  "pair": 11,
+  "split": "dev"
+ },
+ "X-32": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "door_not_closed",
+    "t": 5,
+    "uncertain": false
+   }
+  ],
+  "angle": "C",
+  "pair": 11,
+  "split": "dev"
+ },
+ "X-33": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "door_not_closed",
+    "t": 6,
+    "uncertain": false
+   }
+  ],
+  "angle": "C",
+  "pair": 11,
+  "split": "dev"
+ },
+ "X-34": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "client_left_before_count",
+    "t": 13,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 12,
+  "split": "holdout"
+ },
+ "X-35": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 12,
+  "split": "holdout"
+ },
+ "X-37": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 12,
+  "split": "holdout"
+ },
+ "X-38": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "money_not_secured_before_next_client",
+    "t": 33,
+    "uncertain": false
+   }
+  ],
+  "angle": "A",
+  "pair": 13,
+  "split": "dev"
+ },
+ "X-39": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "A",
+  "pair": 13,
+  "split": "dev"
+ },
+ "X-40": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "personal_items",
+    "t": 17,
+    "uncertain": false
+   }
+  ],
+  "angle": "B",
+  "pair": 14,
+  "split": "dev"
+ },
+ "X-8": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "B",
+  "pair": 14,
+  "split": "dev"
+ },
+ "X-43": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "B",
+  "pair": 15,
+  "split": "dev"
+ },
+ "X-44": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "no_machine_count",
+    "t": 16,
+    "uncertain": true
+   }
+  ],
+  "angle": "B",
+  "pair": 15,
+  "split": "dev"
+ },
+ "X-45": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "B",
+  "pair": 15,
+  "split": "dev"
+ },
+ "X-46": {
+  "verdict": "violation",
+  "events": [
+   {
+    "type": "food_drink",
+    "t": 11,
+    "uncertain": false
+   }
+  ],
+  "angle": "B",
+  "pair": 16,
+  "split": "holdout"
+ },
+ "X-10": {
+  "verdict": "no_violation",
+  "events": [],
+  "angle": "B",
+  "pair": 16,
+  "split": "holdout"
+ }
+}
