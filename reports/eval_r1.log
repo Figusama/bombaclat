@@ -1,0 +1,14 @@
+W1017 18:39:51.170000 48518 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/764 [00:00<?, ?it/s]Loading weights: 100%|██████████| 764/764 [00:00<00:00, 8538.05it/s]
+ERR X-1   [dev/A] GT [('transfer_outside_procedure', 22)] | PRED no_violation | 43s
+ERR X-2   [dev/A] GT [('no_client_id_check', 10)] | PRED no_violation | 31s
+ERR X-3   [dev/A] GT нет | PRED [('no_machine_count', 11.0)] | 31s
+OK  X-4   [holdout/A] GT [('money_not_secured_before_next_client', 57), ('no_machine_count', 68)] | PRED [('no_machine_count', 65.5)] | 125s
+OK  X-5   [holdout/A] GT нет | PRED no_violation | 18s
+OK  X-11  [dev/B] GT [('devices_left_on', 18)] | PRED [('laptop_not_locked', 12.5), ('devices_left_on', 17.0)] | 68s
+OK  X-12  [dev/B] GT нет | PRED no_violation | 70s
+OK  X-13  [dev/B] GT [('no_machine_count', 47)] | PRED [('valuables_left_on_leave', 3.5)] | 158s
+OK  X-14  [dev/A] GT нет | PRED no_violation | 220s
+OK  X-15  [holdout/A] GT [('valuables_left_on_leave', 15)] | PRED [('no_machine_count', 9.0)] | 45s
+/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-48518-1nca99y7'}
+  warnings.warn(

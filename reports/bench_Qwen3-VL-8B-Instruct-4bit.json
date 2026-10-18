@@ -1,0 +1,331 @@
+{
+ "summary": {
+  "model": "mlx-community/Qwen3-VL-8B-Instruct-4bit",
+  "acc": 0.6206896551724138,
+  "n": 29,
+  "sec_per_call": 4.93515683042592,
+  "prompt_tok_per_call": 882.7333333333333,
+  "gen_tok_per_call": 130.76666666666668
+ },
+ "rows": [
+  {
+   "i": 0,
+   "video": "X-22",
+   "t": 16.0,
+   "fact": "key_in_safe_lock",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/00_X-22_16s.jpg",
+   "got": false,
+   "hit": false,
+   "dt": 5.0
+  },
+  {
+   "i": 1,
+   "video": "X-23",
+   "t": 18.0,
+   "fact": "key_in_safe_lock",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/01_X-23_19s.jpg",
+   "got": false,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 2,
+   "video": "X-15",
+   "t": 17.0,
+   "fact": "key_in_safe_lock",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/02_X-15_17s.jpg",
+   "got": false,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 3,
+   "video": "X-28",
+   "t": 9.0,
+   "fact": "laptop_screen",
+   "expected": "work",
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/03_X-28_9s.jpg",
+   "got": "work",
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 4,
+   "video": "X-29",
+   "t": 12.0,
+   "fact": "laptop_screen",
+   "expected": "lock",
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/04_X-29_12s.jpg",
+   "got": "work",
+   "hit": false,
+   "dt": 5.0
+  },
+  {
+   "i": 5,
+   "video": "X-22",
+   "t": 17.0,
+   "fact": "laptop_screen",
+   "expected": "lock",
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/05_X-22_17s.jpg",
+   "got": "lock",
+   "hit": true,
+   "dt": 4.6
+  },
+  {
+   "i": 6,
+   "video": "X-20",
+   "t": 7.0,
+   "fact": "safe_door_open",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/06_X-20_7s.jpg",
+   "got": false,
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 7,
+   "video": "X-21",
+   "t": 9.0,
+   "fact": "safe_door_open",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/07_X-21_9s.jpg",
+   "got": false,
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 8,
+   "video": "X-18",
+   "t": 21.0,
+   "fact": "people_count",
+   "expected": 3,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/08_X-18_21s.jpg",
+   "got": 3,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 9,
+   "video": "X-30",
+   "t": 14.0,
+   "fact": "people_count",
+   "expected": 2,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/09_X-30_14s.jpg",
+   "got": 2,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 10,
+   "video": "X-5",
+   "t": 12.0,
+   "fact": "people_count",
+   "expected": 2,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/10_X-5_12s.jpg",
+   "got": 2,
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 11,
+   "video": "X-11",
+   "t": 3.0,
+   "fact": "people_count",
+   "expected": 1,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/11_X-11_3s.jpg",
+   "got": 1,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 12,
+   "video": "X-28",
+   "t": 10.0,
+   "fact": "people_count",
+   "expected": 0,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/12_X-28_10s.jpg",
+   "got": 1,
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 13,
+   "video": "X-26",
+   "t": 10.0,
+   "fact": "money_on_desk",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/13_X-26_10s.jpg",
+   "got": false,
+   "hit": false,
+   "dt": 5.0
+  },
+  {
+   "i": 14,
+   "video": "X-27",
+   "t": 12.0,
+   "fact": "money_on_desk",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/14_X-27_12s.jpg",
+   "got": false,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 15,
+   "video": "X-45",
+   "t": 10.0,
+   "fact": "money_on_desk",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/15_X-45_10s.jpg",
+   "got": false,
+   "hit": false,
+   "dt": 5.0
+  },
+  {
+   "i": 16,
+   "video": "X-32",
+   "t": 7.0,
+   "fact": "door_open",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/16_X-32_7s.jpg",
+   "got": true,
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 17,
+   "video": "X-31",
+   "t": 8.0,
+   "fact": "door_open",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/17_X-31_8s.jpg",
+   "got": true,
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 18,
+   "video": "X-11",
+   "t": 19.0,
+   "fact": "lights_on",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/18_X-11_19s.jpg",
+   "got": true,
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 19,
+   "video": "X-11",
+   "t": 3.0,
+   "fact": "lights_on",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/19_X-11_3s.jpg",
+   "got": true,
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 20,
+   "video": "X-40",
+   "t": 17.0,
+   "fact": "personal_items_on_desk",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/20_X-40_17s.jpg",
+   "got": true,
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 21,
+   "video": "X-25",
+   "t": 6.0,
+   "fact": "personal_items_on_desk",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/21_X-25_6s.jpg",
+   "got": false,
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 22,
+   "video": "X-46",
+   "t": 11.0,
+   "fact": "food_drink_on_desk",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/22_X-46_11s.jpg",
+   "got": true,
+   "hit": true,
+   "dt": 4.9
+  },
+  {
+   "i": 23,
+   "video": "X-25",
+   "t": 6.0,
+   "fact": "food_drink_on_desk",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/23_X-25_6s.jpg",
+   "got": true,
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 24,
+   "video": "X-4",
+   "t": 62.0,
+   "fact": "cashier_action",
+   "expected": "counting_hand",
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/24_X-4_62s.jpg",
+   "got": "idle",
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 25,
+   "video": "X-44",
+   "t": 16.0,
+   "fact": "cashier_action",
+   "expected": "counting_hand",
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/25_X-44_16s.jpg",
+   "got": "counting_hand",
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 26,
+   "video": "X-35",
+   "t": 12.0,
+   "fact": "cashier_action",
+   "expected": "counting_machine",
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/26_X-35_12s.jpg",
+   "got": "counting_machine",
+   "hit": true,
+   "dt": 5.0
+  },
+  {
+   "i": 27,
+   "video": "X-15",
+   "t": 15.0,
+   "fact": "bag_on_desk",
+   "expected": true,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/27_X-15_15s.jpg",
+   "got": false,
+   "hit": false,
+   "dt": 4.9
+  },
+  {
+   "i": 28,
+   "video": "X-23",
+   "t": 18.0,
+   "fact": "bag_on_desk",
+   "expected": false,
+   "path": "/Users/s.kantay/personal/datahon2/data/cache/bench/28_X-23_19s.jpg",
+   "got": false,
+   "hit": true,
+   "dt": 4.9
+  }
+ ]
+}

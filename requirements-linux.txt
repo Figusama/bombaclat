@@ -1,0 +1,11 @@
+transformers>=4.57
+accelerate
+av
+opencv-python-headless
+fastapi
+uvicorn[standard]
+python-multipart
+pillow
+numpy
+pyyaml
+huggingface_hub

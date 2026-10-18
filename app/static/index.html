@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Видеоаудит кассы</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1c2430; --muted:#6b7280; --line:#e5e7eb; --accent:#1f5eff;
+          --ok:#15803d; --okbg:#ecfdf3; --bad:#b91c1c; --badbg:#fef2f2; --warn:#b45309; --warnbg:#fffbeb; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0f1319; --card:#171c24; --text:#e6e9ef; --muted:#9aa3b2; --line:#2a3342; --accent:#6b93ff;
+          --okbg:#0f2a1a; --ok:#4ade80; --badbg:#2a1313; --bad:#f87171; --warnbg:#2a200d; --warn:#fbbf24; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; }
+  .wrap { max-width:1040px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:22px; margin:0 0 4px } .sub { color:var(--muted); margin:0 0 20px }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin-bottom:16px }
+  .row { display:flex; gap:12px; flex-wrap:wrap; align-items:center }
+  input[type=text] { flex:1; min-width:200px; padding:9px 12px; border:1px solid var(--line); border-radius:8px; background:transparent; color:var(--text) }
+  .drop { border:2px dashed var(--line); border-radius:12px; padding:28px; text-align:center; color:var(--muted); cursor:pointer; transition:.15s }
+  .drop.over { border-color:var(--accent); color:var(--accent) }
+  button { background:var(--accent); color:#fff; border:0; border-radius:8px; padding:10px 18px; font-size:15px; cursor:pointer }
+  button:disabled { opacity:.5; cursor:default }
+  .bar { height:8px; background:var(--line); border-radius:6px; overflow:hidden; margin-top:10px }
+  .bar i { display:block; height:100%; background:var(--accent); width:0; transition:width .4s }
+  .verdict { font-size:20px; font-weight:600; padding:14px 16px; border-radius:10px; margin-bottom:12px }
+  .verdict.ok { background:var(--okbg); color:var(--ok) } .verdict.bad { background:var(--badbg); color:var(--bad) }
+  .v { border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:14px; background:var(--card) }
+  .v h3 { margin:0 0 6px; font-size:17px } .meta { color:var(--muted); font-size:13px }
+  .tag { display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; background:var(--line); margin-left:8px }
+  .tag.High { background:var(--badbg); color:var(--bad) } .tag.Medium { background:var(--warnbg); color:var(--warn) } .tag.Low { background:var(--okbg); color:var(--ok) }
+  .frames { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 }
+  .frames figure { margin:0; width:200px } .frames img { width:100%; border-radius:8px; border:1px solid var(--line); cursor:zoom-in }
+  .frames figcaption { font-size:12px; color:var(--muted); text-align:center }
+  .norm { background:var(--bg); border-radius:8px; padding:10px 12px; font-size:14px; margin-top:8px }
+  .norm b { display:block } .norm q { display:block; color:var(--muted); margin-top:4px; font-style:italic }
+  .norm a { color:var(--accent) }
+  details { margin-top:8px; font-size:13px; color:var(--muted) } pre { white-space:pre-wrap; font-size:12px }
+  .note { font-size:13px; color:var(--muted) }
+  .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:9 }
+  .lightbox img { max-width:95vw; max-height:95vh; border-radius:8px }
+  .err { color:var(--bad) }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Видеоаудит кассовой дисциплины</h1>
+  <p class="sub">Загрузите видеозапись работы кассы (.mov). Сервис локально проанализирует запись и покажет признаки возможных нарушений с кадрами, таймкодами и ссылками на НПА.</p>
+
+  <div class="card">
+    <div class="row">
+      <label for="key">API-ключ</label>
+      <input id="key" type="text" placeholder="X-API-Key">
+    </div>
+    <div id="drop" class="drop" style="margin-top:12px">
+      <div id="dropText">Перетащите .mov сюда или нажмите, чтобы выбрать файл</div>
+      <input id="file" type="file" accept=".mov,.mp4,video/*" hidden>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="go" disabled>Проверить видео</button>
+      <span id="status" class="note"></span>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+  </div>
+
+  <div id="result"></div>
+  <p class="note">Результат является подсказкой для проверки человеком, а не окончательным юридическим или дисциплинарным заключением. Анализ выполняется полностью локально, без облачных сервисов.</p>
+</div>
+<div id="lb" class="lightbox" onclick="this.style.display='none'"><img id="lbimg" alt=""></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const keyInput = $('#key'), drop = $('#drop'), fileInput = $('#file'), go = $('#go'), status = $('#status'), prog = $('#prog'), result = $('#result');
+let file = null;
+try { keyInput.value = localStorage.getItem('apikey') || ''; } catch (e) {}
+keyInput.addEventListener('input', () => { try { localStorage.setItem('apikey', keyInput.value); } catch (e) {} });
+const STAGES = { queued:'в очереди', decode:'декодирование видео', scene:'калибровка сцены', persons:'детекция людей', facts:'анализ фрагментов (VLM)', rules:'проверка правил', render:'подготовка кадров', done:'готово' };
+
+drop.onclick = () => fileInput.click();
+fileInput.onchange = () => setFile(fileInput.files[0]);
+['dragenter','dragover'].forEach(e => drop.addEventListener(e, ev => { ev.preventDefault(); drop.classList.add('over'); }));
+['dragleave','drop'].forEach(e => drop.addEventListener(e, ev => { ev.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', ev => setFile(ev.dataTransfer.files[0]));
+function setFile(f) { if (!f) return; file = f; $('#dropText').textContent = `${f.name} (${(f.size/1e6).toFixed(1)} МБ)`; go.disabled = false; }
+
+go.onclick = async () => {
+  if (!file) return;
+  go.disabled = true; result.innerHTML = ''; prog.style.width = '2%'; status.textContent = 'загрузка файла…';
+  const fd = new FormData(); fd.append('file', file);
+  try {
+    const r = await fetch('/api/v1/analyze', { method:'POST', headers:{ 'X-API-Key': keyInput.value }, body: fd });
+    if (!r.ok) throw new Error((await r.json()).detail || r.statusText);
+    const { job_id } = await r.json();
+    status.textContent = `задача ${job_id}: в очереди`;
+    poll(job_id);
+  } catch (e) { status.innerHTML = `<span class="err">Ошибка: ${e.message}</span>`; go.disabled = false; }
+};
+
+async function poll(id) {
+  const r = await fetch(`/api/v1/jobs/${id}`, { headers:{ 'X-API-Key': keyInput.value } });
+  if (!r.ok) { status.innerHTML = `<span class="err">Ошибка: ${r.status}</span>`; go.disabled = false; return; }
+  const j = await r.json();
+  if (j.status === 'processing') {
+    prog.style.width = Math.max(2, (j.progress || 0) * 100) + '%';
+    status.textContent = `задача ${id}: ${STAGES[j.stage] || j.stage || 'обработка'}…`;
+    setTimeout(() => poll(id), 1500); return;
+  }
+  go.disabled = false; prog.style.width = '100%';
+  if (j.status === 'failed') { status.innerHTML = `<span class="err">Обработка не удалась: ${j.error}</span>`; return; }
+  status.textContent = `готово за ${j.meta?.timings?.total ?? '?'} с`;
+  render(j);
+}
+
+const ZONES = { safe:'сейф', laptop:'ноутбук', desk:'стол', door:'дверь', counting_machine:'счётная машинка' };
+function quote(q) { q = String(q ?? '').trim(); return q.startsWith('«') ? q : '«' + q + '»'; }
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function fmt(t) { const m = Math.floor(t/60), s = (t - m*60).toFixed(1).padStart(4,'0'); return `${m}:${s}`; }
+
+function render(j) {
+  const bad = j.verdict === 'violation';
+  let h = `<div class="verdict ${bad?'bad':'ok'}">${bad ? '⚠️ Обнаружены признаки возможных нарушений' : '✅ Нарушение не обнаружено'}</div>`;
+  if (!bad) h += `<div class="card note">Проверено ${j.meta?.segments?.length ?? '?'} фрагментов видео длительностью ${j.meta?.duration_sec ?? '?'} с. Признаков нарушений из каталога не найдено.</div>`;
+  j.violations.forEach((v, i) => {
+    const basis = { confirmed:'прямое основание', indirect:'применимо по смыслу', proposed:'основание предложено, требует сверки с внутренними документами банка' }[v.rule?.basis] || '';
+    h += `<div class="v">
+      <h3>${esc(v.type)} <span class="tag ${esc(v.priority)}">${esc(v.priority)}</span></h3>
+      <div class="meta">Таймкод: <b>${fmt(v.timecode_sec)}</b> (${v.timecode_sec} с) · уверенность ${(v.confidence*100).toFixed(0)}%</div>
+      <p>${esc(v.description)}</p>
+      <div class="frames">${(v.evidence_frames||[]).map(f => `<figure><img src="data:image/jpeg;base64,${f.image_base64}" onclick="zoom(this)"><figcaption>${fmt(f.timestamp_sec)}${f.zoom ? ' · зона: ' + esc(ZONES[f.zoom] || f.zoom) : ''}</figcaption></figure>`).join('')}</div>
+      <div class="norm"><b>${esc(v.rule?.document)}, ${esc(v.rule?.clause)}</b><q>${esc(quote(v.rule?.quote))}</q>
+        <div class="note">${esc(basis)}${v.rule?.note ? ' · ' + esc(v.rule.note) : ''} · <a href="${esc(v.rule?.url)}" target="_blank" rel="noopener">adilet.zan.kz</a></div>
+        ${(v.rules_all||[]).slice(1).map(n => `<div class="note" style="margin-top:4px">Также: ${esc(n.document)}, ${esc(n.clause)}</div>`).join('')}
+      </div>
+      <details><summary>Наблюдаемые факты</summary><pre>${esc(JSON.stringify(v.observed, null, 1))}</pre></details>
+    </div>`;
+  });
+  h += `<details class="card"><summary>Технические детали (сегменты, шкала людей, тайминги)</summary><pre>${esc(JSON.stringify({timings:j.meta?.timings, model:j.meta?.model, scene:j.meta?.scene, people:j.meta?.people_timeline, segments:j.meta?.segments}, null, 1))}</pre></details>`;
+  result.innerHTML = h;
+}
+function zoom(img) { $('#lbimg').src = img.src; $('#lb').style.display = 'flex'; }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.venv/
+data/
+open.zip
+.env
+__pycache__/
+*.pyc
+*.docx
+*.mov

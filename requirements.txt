@@ -1,0 +1,14 @@
+mlx-vlm>=0.3.12
+torch>=2.4
+torchvision
+transformers>=4.49
+av
+opencv-python-headless
+fastapi
+uvicorn[standard]
+python-multipart
+pillow
+numpy
+pyyaml
+openpyxl
+huggingface_hub
